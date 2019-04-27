@@ -6,8 +6,10 @@ from getpass import getpass
 from sys import argv
 
 p = ""
-
-p = argv[1]
+try:
+	p = argv[1]
+except:
+	p = getpass()
 
 
 class EchoBot(Client):

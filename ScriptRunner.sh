@@ -15,6 +15,7 @@ gnome-terminal --tab --title='Stop Detector' --command='sh -c "python3 StopDetec
 gnome-terminal --tab --title="Sanjeev's Inspiration" --command='sh -c "python3 SanjeevInspiration.py '$p'"'
 gnome-terminal --tab --title='Secretary Sanjeev' --command='sh -c "python3 SecretarySanjeev.py '$p'"'
 gnome-terminal --tab --title='Playful Sanjeev' --command='sh -c "python3 FizzBuzzSanjeev.py '$p'"'
+gnome-termianl --tab --title='Spelling Sanjeev' --command='sh -c "python3 SpellingSanjeev.py '$p'"'
 gnome-terminal --tab --title='AI Visualisation' --command='cmatrix'
 clear
 
