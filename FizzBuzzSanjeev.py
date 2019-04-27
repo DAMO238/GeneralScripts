@@ -18,40 +18,43 @@ def Time(thread_id, thread_type):
 	
 class FizzBuzz(Client):
 	currentNumber = 0
-	
+	t = None
 	
 	def Start(self, thread_id, thread_type):
 		self.send(Message(text='Ok, Let\'s play FizzBuzz!\nThe rules are simple, start counting from 1, every multiple of 3 replace that number with Fizz, every multiple of 5 replace with Buzz, multiples of both say FizzBuzz. We will take it in turns, so consider this a crude version of Organics vs Synthetics!\n\nOk, I\'ll start with 1'), thread_id, thread_type)
 		self.currentNumber = 2
-		t = Timer(3, Time, args=[thread_id, thread_type])
-		t.start()
+		print(self.currentNumber)
+		self.t = Timer(5, Time, args=[thread_id, thread_type])
+		self.t.start()
 		
 	
 		
 	def Round(self, thread_id, thread_type, message_text):
+		print(self.currentNumber)
 		expectedText = ''
-		if self.currentNumber % 3:
+		if self.currentNumber % 3 == 0:
 			expectedText = expectedText + 'Fizz'
-		if self.currentNumber % 5:
+		if self.currentNumber % 5 == 0:
 			expectedText = expectedText + 'Buzz'
 		if expectedText == '':
 			expectedText = str(self.currentNumber)
+		print(expectedText)
 			
-		if expectedText == message_text:
-			t.stop()
+		if str(expectedText) == str(message_text):
+			self.t.cancel()
 			self.currentNumber = self.currentNumber + 1
 			textToSay = ''
-			if self.currentNumber % 3:
+			if self.currentNumber % 3 == 0:
 				textToSay = textToSay + 'Fizz'
-			if self.currentNumber % 5:
+			if self.currentNumber % 5 == 0:
 				textToSay = textToSay + 'Buzz'
 			if textToSay == '':
 				textToSay = str(self.currentNumber)
 				
 			self.send(Message(text=textToSay), thread_id, thread_type)
 			self.currentNumber = self.currentNumber + 1
-			t = Timer(3, Time, args=[thread_id, thead_type])
-			t.start()
+			self.t = Timer(3, Time, args=[thread_id, thread_type])
+			self.t.start()
 			
 		else:
 			self.send(Message(text='YOU LOSE!!\n\nYou said the wrong number and so we have more proof that organics are inferior'), thread_id, thread_type)
