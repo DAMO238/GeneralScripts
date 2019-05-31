@@ -75,13 +75,13 @@ class EchoBot(Client):
 			
 			if isRepeat == 0:
 				if author_id == self.uid:
-					self.sendLocalFiles(['Minutes.docx'] ,Message(text=myReplies[random.randint(0, john)]), thread_id=thread_id, thread_type=thread_type)
+					self.sendLocalFiles(['CurrentMinutes'] ,Message(text=myReplies[random.randint(0, john)]), thread_id=thread_id, thread_type=thread_type)
 				elif bad_id:
 					self.send(Message(text=evilReplies[random.randint(0,disc)]), thread_id=thread_id, thread_type=thread_type)
 				elif good_id:
-					self.sendLocalFiles(['Minutes.docx'], Message( text=friendReplies[random.randint(0,orange)]), thread_id=thread_id, thread_type=thread_type)
+					self.sendLocalFiles(['CurrentMinutes'], Message( text=friendReplies[random.randint(0,orange)]), thread_id=thread_id, thread_type=thread_type)
 				else:
-					self.sendLocalFiles(['Minutes.docx'], Message( text=replies[random.randint(0,potato)]), thread_id=thread_id, thread_type=thread_type)
+					self.sendLocalFiles(['CurrentMinutes'], Message( text=replies[random.randint(0,potato)]), thread_id=thread_id, thread_type=thread_type)
 
 client = EchoBot('damien31@rocketmail.com', p)
 client.listen()
