@@ -32,56 +32,61 @@ class EchoBot(Client):
 	
 
 	def onMessage(self, author_id, message_object, thread_id, thread_type, **kwargs):
-		self.markAsDelivered(thread_id, message_object.uid)
-		self.markAsRead(thread_id)
-		print('Current Reaction Thread: {}'.format(self.i))
-		log.info("{} from {} in {}".format(message_object, thread_id, thread_type.name))
-		rng = random.randint(0,100)
-		print('Reaction Number: {}'.format(rng))
-		
-		if author_id != self.uid and rng == 1:
-			secs = random.randint(10,600)
-			print('Will send image in {} seconds'.format(secs))
-			k = thread_id
-			l = thread_type
+		data = {}
+		with open('stopGroups', 'r') as stopGroups:
+			data = json.load(stopGroups)
+			
+		if not thread_id in data:
+                    self.markAsDelivered(thread_id, message_object.uid)
+                    self.markAsRead(thread_id)
+                    print('Current Reaction Thread: {}'.format(self.i))
+                    log.info("{} from {} in {}".format(message_object, thread_id, thread_type.name))
+                    rng = random.randint(0,100)
+                    print('Reaction Number: {}'.format(rng))
+                    
+                    if 'sanjeev' in message_object.lower() and 'inspire' in message_object.lower():
+                            secs = random.randint(10,600)
+                            print('Will send image in {} seconds'.format(secs))
+                            k = thread_id
+                            l = thread_type
 
-			self.i = self.i+1
-			if self.i == 1:
-				t = threading.Timer(secs , randomReact, args=[k, l])
-				t.start()
+                            self.i = self.i+1
+                            if self.i == 1:
+                                    t = threading.Timer(secs , randomReact, args=[k, l])
+                                    t.start()
 
-			if self.i == 2:
-				y = threading.Timer(secs , randomReact, args=[k, l])
-				y.start()
+                            if self.i == 2:
+                                    y = threading.Timer(secs , randomReact, args=[k, l])
+                                    y.start()
 
-			if self.i == 3:
-				u = threading.Timer(secs , randomReact, args=[k, l])
-				u.start()
+                            if self.i == 3:
+                                    u = threading.Timer(secs , randomReact, args=[k, l])
+                                    u.start()
 
-			if self.i == 4:
-				o = threading.Timer(secs , randomReact, args=[k, l])
-				o.start()
+                            if self.i == 4:
+                                    o = threading.Timer(secs , randomReact, args=[k, l])
+                                    o.start()
 
-			if self.i == 5:
-				p = threading.Timer(secs , randomReact, args=[k, l])
-				p.start()
+                            if self.i == 5:
+                                    p = threading.Timer(secs , randomReact, args=[k, l])
+                                    p.start()
 
-			if self.i == 6:
-				q = threading.Timer(secs , randomReact, args=[k, l])
-				q.start()
+                            if self.i == 6:
+                                    q = threading.Timer(secs , randomReact, args=[k, l])
+                                    q.start()
 
-			if self.i == 7:
-				w = threading.Timer(secs , randomReact, args=[k, l])
-				w.start()
+                            if self.i == 7:
+                                    w = threading.Timer(secs , randomReact, args=[k, l])
+                                    w.start()
 
-			if self.i == 8:
-				e = threading.Timer(secs , randomReact, args=[k, l])
-				e.start()
+                            if self.i == 8:
+                                    e = threading.Timer(secs , randomReact, args=[k, l])
+                                    e.start()
 
-			if self.i == 9:
-				r = threading.Timer(secs , randomReact, args=[k, l])
-				r.start()
-				self.i = 0
+                            if self.i == 9:
+                                    r = threading.Timer(secs , randomReact, args=[k, l])
+                                    r.start()
+                                    self.i = 0
 
 
 client = EchoBot('damien31@rocketmail.com', p)

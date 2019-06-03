@@ -2,9 +2,9 @@
 
 read -sp 'Password: ' p
 tmux new-session -d -s 'Sanjeev'
-sleep 10; tmux new-window -n 'Disc Emote Reply' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 DISC.py '$p'"
-sleep 10; tmux new-window -n 'Disc Emote Static' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 EmoteStatic.py '$p'"
-sleep 10; tmux new-window -n 'Rocket Emote Static' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 RocketEmoteStatic.py '$p'"
+#sleep 10; tmux new-window -n 'Disc Emote Reply' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 DISC.py '$p'"
+#sleep 10; tmux new-window -n 'Disc Emote Static' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 EmoteStatic.py '$p'"
+#sleep 10; tmux new-window -n 'Rocket Emote Static' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 RocketEmoteStatic.py '$p'"
 sleep 10; tmux new-window -n 'Random Reactions' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 RandomReact2.py '$p'"
 sleep 10; tmux new-window -n 'Colour Changer' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 RandomColours.py '$p'"
 sleep 10; tmux new-window -n 'Sanjeev Replier' -c '/home/sanjeev/sanjeevscripts/fb/' "python3 SanjeevReply.py '$p'"
